@@ -1,0 +1,65 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --radius: 0.75rem;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/90 shadow-lg border border-white/20;
+  }
+  
+  .interview-card {
+    @apply glass-card p-6 rounded-lg transition-all duration-300 hover:shadow-xl;
+  }
+  
+  .button-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground px-4 py-2 rounded-md transition-all duration-200;
+  }
+  
+  .button-secondary {
+    @apply bg-secondary hover:bg-secondary-hover text-secondary-foreground px-4 py-2 rounded-md transition-all duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 rounded-md border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-200;
+  }
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.interview-section {
+  @apply max-w-4xl mx-auto px-4 py-8;
+}
